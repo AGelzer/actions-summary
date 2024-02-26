@@ -1,0 +1,32 @@
+name: Pre-Release
+run-name: Pre-Release on ${{ github.event_name }}  ${{ github.event_name == 'push' && format('to {0}', github.ref_name) || '' }}  by @${{ github.actor }}
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    name: Build
+    outputs:
+      tag: ${{ steps.build.outputs.tag }}
+    steps:
+      - if: ${{ success() }}
+        shell: bash
+        run: |
+          echo "### Step: 1" >> $GITHUB_STEP_SUMMARY
+      - if: ${{ success() }}
+        shell: bash
+        run: |
+          echo "### Step: 2" >> $GITHUB_STEP_SUMMARY
+      - if: ${{ success() }}
+        shell: bash
+        run: |
+          echo "### Step: 3" >> $GITHUB_STEP_SUMMARY
+      - if: ${{ success() }}
+        shell: bash
+        run: |
+          echo "### Step: 4" >> $GITHUB_STEP_SUMMARY
+      - if: ${{ success() }}
+        shell: bash
+        run: |
+          echo "### Step: 5" >> $GITHUB_STEP_SUMMARY
